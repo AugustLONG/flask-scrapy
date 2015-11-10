@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{%  block page_content %}
+
+<div class="page-header">
+    <h4>用户资料页面</h4>
+    <p>用户姓名：{{ user.username }}</p>
+    <p>用户性别：{{ user.gender }}</p>
+
+    <p>用户介绍:
+        {{ user.about_me }}
+    </p>
+
+    <p>用户注册时间:
+    {{ moment(user.member_since).format('L') }}
+    </p>
+    <p>用户上次登录时间
+
+    {{ moment(user.last_seen).fromNow() }}
+
+    </p>
+
+{% if user==current_user %}
+
+        <a class="btn btn-default"
+           href="{{ url_for('main.edit_profile',username=current_user.username) }}">
+           Edit
+        </a>
+
+{% endif %}
+
+
+<!-- 完成用户的关注-->
+{% if current_user.can(Permission.FOLLOW) and user!=current_user %}
+   {% if not current_user.is_following(user) %}
+<a href="{{ url_for('main.follow',username=user.username) }}" class="btn btn-primary">Follow</a>
+
+    {% else %}
+<a href="{{ url_for('main.unfollow',username=user.username) }}" class="btn btn-primary">Unfollow
+</a>
+{% endif %}
+{% endif %}
+
+<a href="{{ url_for('main.followers',username=user.username) }}">Followers
+<span class="badge">{{ user.followers.count() }}</span></a>
+
+
+
+
+
+
+</div>
+
+{% include"_post.html" %}
+
+
+{% endblock %}

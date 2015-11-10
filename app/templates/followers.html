@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+<div class="page-header">
+    <p>用户名: {{ user.username }}</p>
+
+    <p>关注的名单如下</p>
+        {{ user.followers }}
+    {% for follower in user.followers %}
+        {{ follower.username }}
+    {% endfor %}
+
+</div>
+
+{% endblock %}
