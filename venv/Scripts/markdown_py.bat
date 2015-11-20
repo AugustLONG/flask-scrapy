@@ -1,0 +1,1 @@
+@"C:\Users\Azcortex\PycharmProjects\flask-web-development-2\venv\Scripts\python.exe" "C:\Users\Azcortex\PycharmProjects\flask-web-development-2\venv\Scripts\markdown_py" %*
