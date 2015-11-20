@@ -22,6 +22,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+
     SQLALCHEMY_BINDS ={
     #'website':'mysql://root:402840evenedMYSQL@localhost:3307/website',
 
@@ -33,9 +34,11 @@ class DevelopmentConfig(Config):
 
 
 
+
 class TestingConfig(Config):
     TESTING = True #这看起来是自己定义的一个
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir,'date-test.sqlite')
+
     SQLALCHEMY_BINDS ={
     'scrapy':'mysql://username:password@localhost:3307/dbname',
     
@@ -47,6 +50,11 @@ class ProductionConfig(Config):
     'scrapy':'mysql://username:password@localhost:3307/dbname',
     
 }
+
+
+class ProductionConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir,'data-pro.sqlite')
+
 
 # 下面要引入一个字典来完成对选择的默认
 config = {

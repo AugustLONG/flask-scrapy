@@ -3,7 +3,10 @@
 from . import main
 from flask import render_template, redirect, url_for, abort, flash, request
 from flask.ext.login import login_required, current_user, current_app
+
 from ..models import User, Role, Post, Permission, Follow,Comment,Dmoz
+
+>>>>>>> 28094f758bead820cc7c42c1dd82de3306b0fd32
 from ..decorators import admin_required, permission_required
 from .. import db
 from .forms import EditProfileForm, PostForm,CommentForm
@@ -128,9 +131,11 @@ def followers(username):
     # 自己先完成自己的内容
     return render_template('followers.html', user = user)
 
-'''
+
+
 @main.route('/get')
 def getdmozdata():
     dmoz = Dmoz.query.all()
     return render_template('dmoz.html',dmoz=dmoz)
-'''
+
+

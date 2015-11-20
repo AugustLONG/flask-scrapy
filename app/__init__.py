@@ -44,6 +44,7 @@ def create_app(config_name):
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix='/auth')
 
+
     from .ugc import ugc as ugc_blueprint
     app.register_blueprint(ugc_blueprint,url_prefix='/ugc')
 
@@ -52,6 +53,7 @@ def create_app(config_name):
 
     from .news import news as news_blueprint
     app.register_blueprint(news_blueprint,url_prefix='/news')
+
 
     return app
 

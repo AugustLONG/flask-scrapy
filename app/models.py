@@ -17,7 +17,7 @@ class Permission:
 
 
 class Role(db.Model):
-    #__bind_key__ = 'mainContent'
+
     __tablename__ = 'roles'
     # 这里自己把书和文档翻一遍
     # 按照一步一步来，先定义前面几个
@@ -60,7 +60,7 @@ class Role(db.Model):
 
 # 定义用户表单，完成对应的关注功能
 class Follow(db.Model):
-    #__bind_key__ = 'mainContent'
+
 
     __tablename__ = 'follows'
     follower_id = db.Column(db.Integer, db.ForeignKey('users.id'),
@@ -71,7 +71,7 @@ class Follow(db.Model):
 
 
 class User(UserMixin, db.Model):
-    #__bind_key__ = 'mainContent'
+
     __tablename__ = 'users'
 
     def __init__(self, **kwargs):
@@ -187,7 +187,7 @@ class User(UserMixin, db.Model):
 
 
 class AnonymousUser(AnonymousUserMixin):
-    #__bind_key__ = 'mainContent'
+
     # 类的继承
 
     def can(self, permission):
@@ -199,7 +199,7 @@ class AnonymousUser(AnonymousUserMixin):
 
 # 还要处理用户表单
 class Post(db.Model):
-    #__bind_key__ = 'mainContent'
+
     __tablename__ ='posts'
     id = db.Column(db.Integer, primary_key = True)
     body = db.Column(db.Text)
@@ -231,7 +231,7 @@ class Post(db.Model):
 # 下面是要处理用户评论，和用户、文章之间都是一对多关系
 
 class Comment(db.Model):
-    #__bind_key__ = 'mainContent'
+
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer,primary_key=True)
@@ -253,6 +253,7 @@ def load_user(user_id):
     return User.query.filter_by(id = user_id).first()
     # 或者是 User.quert.get(int(user_id))
 
+
 class Dmoz(db.Model):
     __bind_key__ = 'website'
     __tablename__ = 'website'
@@ -267,4 +268,3 @@ class v2ex(db.Model):
     __tablename__='v2ex'
     guid = db.Column(db.String(128),primary_key=True)
     link = db.Column(db.String(128))
-
