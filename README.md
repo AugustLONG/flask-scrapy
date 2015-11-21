@@ -14,4 +14,7 @@
 
 ---
 
-更多信息参见：[hzcortex.me](hzcortex.me)
+* 关于使用 scrapy 和 flask 连接 MySQL 请参见[博文]()
+
+* 关于 scrapy 爬虫信息请参见 [repo:scrpay-demos](https://github.com/Allianzcortex/scrapy-demos)
+
